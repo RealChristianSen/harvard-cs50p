@@ -1,41 +1,24 @@
-# prompts user for file name
-file = str(input("File: "))
+# prompts user for file
+file = input("File: ").lower().strip()
 
-file = file.lower().strip()
-
-# splits file by file name and file type
-name, type , extra = file.split(".")
-# image - gif, jpg, jpeg, png
-# application - zip, pdf, 
-# text - txt
-
-print(type)
-
-if extra == "":
-
-    if type == "":
-        print("application/octet-stream")
-        
-    if type == "gif":
-        print("image/gif")
-        
-    if type == "jpg" or "jpeg":
-        print("image/jpeg")
-        
-    if type == "png":
-        print("image/png")
-        
-    if type == "zip":
-        print("application/zip")
-        
-    if type == "pdf":
-        print("application/pdf")
-        
-    if type == "txt":
-        print(f"text/{name}")
-        
-else:
+if file.endswith(".gif"):
+    print("image/gif")
     
-    if extra == "pdf":
-        print("application/pdf")
-        
+elif file.endswith(".jpg") or file.endswith(".jpeg"):
+    print("image/jpeg")
+    
+elif file.endswith(".png"):
+    print("image/png")
+    
+elif file.endswith(".pdf"):
+    print("application/pdf")
+    
+elif file.endswith(".txt"):
+    print("text/plain")
+    
+elif file.endswith(".zip"):
+    print("application/zip")
+    
+# case to catch prompt error or unsupported file types
+else:
+    print("application/octet-stream")

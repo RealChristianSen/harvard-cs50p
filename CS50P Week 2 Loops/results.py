@@ -1,8 +1,5 @@
-results = ["Mario", "Luigi"]
+results = ["Mario", "Luigi", "Princess", "Yoshi", "Koope Troopa", "Toad", "Bowser", "Donkey Kong Jr."]
 
-results.append("Princess")
-results.append("Yoshi")
-results.append("Koope Troopa")
-results.append("Toad")
+results.remove("Bowser")
 
 print(results)

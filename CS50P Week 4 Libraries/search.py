@@ -1,5 +1,4 @@
-from artwork import get_artworks
-from artists import get_artists
+from museum.artists import get_artists
 
 def main():
     artist = input("Artist: ")

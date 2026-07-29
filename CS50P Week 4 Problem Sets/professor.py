@@ -14,25 +14,25 @@ def main():
 
     # for loop that loops 10 times for each randomly generated problem
     for i in range(10):
-        
+
         # calls on generate_integer function to assign x a random int
         x = generate_integer(level)
-        
+
         # calls on generate_integer function to assign y a random int
         y = generate_integer(level)
-        
+
         # assigns z the sum of x and y
         z = x + y
-        
+
         # assigns the problem dict's keys with it's associated values
-        problem = {'x': x, 'y': y, 'z': z}
-        
+        problem = {"x": x, "y": y, "z": z}
+
         # appends the problem dict to the problems list
         problems.append(problem)
 
     # for loop to iterate through the 10 problems in the problems list
     for problem in problems:
-        
+
         # sets incorrect var to 0 each correct user answer
         incorrect = 0
 
@@ -48,23 +48,24 @@ def main():
                 print("EEE")
                 incorrect += 1
                 continue
-            
+
             # if user answers correctly increments correct var
             if user_answer == problem["z"]:
                 correct += 1
                 break
-            
+
             # if user answers incorrectly increments inocorrect var and prints EEE
             else:
                 print("EEE")
                 incorrect += 1
-                
+
         # if user answers incorrectly 3 times displays the correct answer
         else:
             print(f"{problem['x']} + {problem['y']} = {problem['z']}")
 
     # after 10 problems have been solved incorrectly or correctly prints out the user score out of 10
     print(f"Score: {correct}")
+
 
 # function to prompt user for level, reprompt if necessary, and returns the level
 def get_level():
@@ -78,7 +79,7 @@ def get_level():
             # if level is not 1, 2, or 3 continues to reprompt
             if level not in [1, 2, 3]:
                 continue
-            
+
             # returns level if valid
             else:
                 return level
@@ -86,6 +87,7 @@ def get_level():
         # catches ValueError and continues while loop
         except ValueError:
             continue
+
 
 # function to return randomly generated integer
 def generate_integer(level):
@@ -97,7 +99,7 @@ def generate_integer(level):
         return random.randint(10, 99)
     elif level == 3:
         return random.randint(100, 999)
-    
+
     # if level is not valid raises ValueError
     else:
         raise ValueError
